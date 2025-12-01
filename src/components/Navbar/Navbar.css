@@ -1,0 +1,140 @@
+
+nav {
+  box-sizing: border-box;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: left;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  background-color: var(--primary);
+  vertical-align: bottom;
+}
+
+.navbar-essentials {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.navbar-menu-dropdown-icon {
+  display: none;
+  color: white;
+  transition: ease-out 0.2s;
+  margin: auto 0 0 0;
+  padding: auto;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border: none;
+
+  &:hover {
+    color: var(--primary-dark);
+    background-color: white;
+
+    .dropdown-content {
+      display: flex;
+    }
+
+    .menu-icon {
+      filter: none;
+    }
+  }
+
+  .menu-icon {
+    height: 1.5rem;
+    padding: 0rem;
+    margin: 0;
+    filter: invert();
+  }
+}
+
+.links {
+  display: flex;
+  gap: 0.25rem;
+  float: right; 
+}
+
+.nav-link {
+  color: #ffffff;
+  margin: auto 0 0 0;
+  padding: 0.5rem;
+  align-items: center;
+  border-radius: 0.5rem 0.5rem 0 0;
+  transition: ease-out 0.2s;
+  display: block;
+
+  &.active {
+    background-color: var(--primary-dark);
+  }
+
+  & p {
+    margin: 0.5rem;
+  }
+  
+  .dropdown-content {
+    background-color: var(--primary-dark);
+    color: var(--primary-dark);
+    border-radius: 0 0 0.5rem 0.5rem;
+    display: none;
+    position: absolute;
+    transition: ease-out 0.2s;
+    margin: 0;
+    gap: 0;
+
+    & a {
+      border-radius: 0 0 0.5rem 0.5rem;
+    }
+  }
+
+  &:hover {
+    color: var(--primary-dark);
+    background-color: white;
+
+    .dropdown-content {
+      display: flex;
+    }
+  }
+
+}
+
+@media (max-width: 600px) {
+  nav {
+    display: block;
+  }
+
+  .links {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    float: left;
+    width: 100vw;
+    background-color: var(--primary-dark);
+    box-sizing: border-box;
+    transition: ease-out 0.2s;
+    overflow-y: hidden;
+    
+    /* box-shadow: 0 0rem 0.5rem 0 var(--primary-dark); */
+    
+    &.dropdown-active {
+      /* display: block; */
+      opacity: 1;
+    }
+  }
+
+  .links .nav-link {
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+
+    &.active {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    &:hover {
+      color: var(--primary-dark);
+      background-color: white;
+    }
+  }
+
+  .navbar-menu-dropdown-icon {
+    display: block;
+  }
+}
